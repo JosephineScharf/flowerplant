@@ -27,3 +27,10 @@
   border-radius: 6px;
   border: 1px solid #ccc;
 }
+.form-row select {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}

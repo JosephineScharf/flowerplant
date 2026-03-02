@@ -1,88 +1,117 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Form.css"
 
 export default function CreatePlant() {
 
-  const [plants, setPlants] = useState(() => {
-    const saved = localStorage.getItem("plants");
-    return saved ? JSON.parse(saved) : [];
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    commonName: "",
+    scientificName: "",
+    light: "",
+    watering: "",
+    soil: "",
+    level: "Beginner"
   });
 
-  const [commonName, setCommonName] = useState("");
-  const [scientificName, setScientificName] = useState("");
-  const [light, setLight] = useState("");
-  const [watering, setWatering] = useState("");
-  const [soil, setSoil] = useState("");
-  const [level, setLevel] = useState("");
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
-  let navigate = useNavigate();
-
-  useEffect(() => {
-    localStorage.setItem("plants", JSON.stringify(plants));
-  }, [plants]);
-
-  function createHandler(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    const highestId =
-      plants.length > 0
-        ? Math.max(...plants.map(p => p.id))
-        : -1;
+    const plants = JSON.parse(localStorage.getItem("plants")) || [];
+    plants.push(formData);
+    localStorage.setItem("plants", JSON.stringify(plants));
 
-    const newPlant = {
-      id: highestId + 1,
-      commonName,
-      scientificName,
-      light,
-      watering,
-      soil,
-      level
-    };
-
-    setPlants([...plants, newPlant]);
     navigate("/myplants");
-  }
+  };
 
   return (
-      <div className="form-card">
+    <div className="form-card">
 
-    <h2>Create New Plant 🪴 </h2>
-<form onSubmit={createHandler} className="plant-form">
+      <h2>Create Your Own Plant Card</h2>
 
-  <div className="form-row">
-    <label> Common Name 🌼:</label>
-    <input onChange={e => setCommonName(e.target.value)} required />
-  </div>
+      <form className="plant-form" onSubmit={handleSubmit}>
 
-  <div className="form-row">
-    <label>Scientific Name 🔬:</label>
-    <input onChange={e => setScientificName(e.target.value)} required />
-  </div>
+        <div className="form-row">
+          <label>Common Name 🌱</label>
+          <input
+            type="text"
+            name="commonName"
+            value={formData.commonName}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-  <div className="form-row">
-    <label> Light ☀️:</label>
-    <input onChange={e => setLight(e.target.value)} required />
-  </div>
+        <div className="form-row">
+          <label>Scientific Name 🪏</label>
+          <input
+            type="text"
+            name="scientificName"
+            value={formData.scientificName}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-  <div className="form-row">
-    <label> Watering 💧:</label>
-    <input onChange={e => setWatering(e.target.value)} required />
-  </div>
+        <div className="form-row">
+          <label>Light ☀️</label>
+          <input
+            type="text"
+            name="light"
+            value={formData.light}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-  <div className="form-row">
-    <label> Soil 🌱:</label>
-    <input onChange={e => setSoil(e.target.value)} required />
-  </div>
+        <div className="form-row">
+          <label>Watering 💧</label>
+          <input
+            type="text"
+            name="watering"
+            value={formData.watering}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-  <div className="form-row">
-    <label> Difficulty 📊:</label>
-    <input onChange={e => setLevel(e.target.value)} required />
-  </div>
+        <div className="form-row">
+          <label>Soil 🪴</label>
+          <input
+            type="text"
+            name="soil"
+            value={formData.soil}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-  <button className="primary-btn">Create Plant</button>
+        {/* 🔥 DROPDOWN THAT MATCHES YOUR LAYOUT */}
+        <div className="form-row">
+          <label>Level ♟️</label>
+          <select
+            name="level"
+            value={formData.level}
+            onChange={handleChange}
+          >
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Expert">Expert</option>
+          </select>
+        </div>
 
-</form>
+        <button className="primary-btn" type="submit">
+          Save Plant
+        </button>
+
+      </form>
     </div>
   );
 }
