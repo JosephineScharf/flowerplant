@@ -1,7 +1,8 @@
 import "./Home.css";
-import snakeImg from "../assets/Snake.jpg";
-import spiderImg from "../assets/Spider.jpg";
-import ficusImg from "../assets/Ficus.jpg";
+import snakeImg from "../assets/snake.jpg";
+import spiderImg from "../assets/spider.jpg";
+import ficusImg from "../assets/ficus.jpg";
+import heroImg from "../assets/hero.jpg";
 
 
 export default function Home() {
@@ -41,7 +42,14 @@ export default function Home() {
 // Display
   return (
     <div>
-      <div className="hero">
+      <div
+  className="hero"
+  style={{
+    backgroundImage: `url(${heroImg})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center"
+  }}
+>
         <div className="hero-text">
           <h1>Welcome to FlowerPlant 🌱</h1>
           <p>Learn how to care for your plants</p>

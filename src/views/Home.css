@@ -1,8 +1,4 @@
 .hero {
-  height: 50vh;
-  background-image: url("/hero.jpg");
-  background-size: cover;
-  background-position: center;
   display: flex;
   align-items: center;
   justify-content: left;
