@@ -1,4 +1,3 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MyPlants from "./views/MyPlants";
@@ -6,10 +5,11 @@ import CreatePlant from "./views/CreatePlant";
 import UpdatePlant from "./views/UpdatePlant";
 import About from "./views/About";
 import Home from "./views/Home";
+import { Routes, Route } from "react-router-dom";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <>
       <Header />
 
       <main>
@@ -23,6 +23,6 @@ export default function App() {
       </main>
 
       <Footer />
-    </BrowserRouter>
+    </>
   );
 }
