@@ -8,7 +8,7 @@ import ficusImg from "../assets/ficus.jpg";
 export default function Home() {
 
 
-  //  Plant data
+
   const plantGuides = [
     {
       image: snakeImg,
@@ -39,7 +39,7 @@ export default function Home() {
     }
   ];
 
-// Display
+
   return (
     <div>
       <div className="hero">

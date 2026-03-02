@@ -93,7 +93,7 @@ export default function CreatePlant() {
           />
         </div>
 
-        {/* 🔥 DROPDOWN THAT MATCHES YOUR LAYOUT */}
+       
         <div className="form-row">
           <label>Level ♟️</label>
           <select

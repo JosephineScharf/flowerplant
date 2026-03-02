@@ -7,10 +7,10 @@
   background-position: center;
 
   display: flex;
-  align-items: center;     /* vertical center */
-  justify-content: center; /* horizontal center */
+  align-items: center;    
+  justify-content: center; 
 
-  text-align: center;      /* center text inside */
+  text-align: center;      
   color: white;
 }
 
