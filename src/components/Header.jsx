@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import "./Header.css";
+import logoImg from "../assets/logo.svg"
 
 export default function Header() {
   return (
     <header className="header">
 
       <div className="logo-section">
-        <img src="/logo.svg" alt="FlowerPlant logo" />
+        <img src={logoImg} alt="FlowerPlant logo" />
         <h2>FlowerPlant</h2>
       </div>
 

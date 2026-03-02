@@ -1,4 +1,8 @@
 import "./Home.css";
+import snakeImg from "../assets/Snake.jpg";
+import spiderImg from "../assets/Spider.jpg";
+import ficusImg from "../assets/Ficus.jpg";
+
 
 export default function Home() {
 
@@ -6,7 +10,7 @@ export default function Home() {
   //  Plant data
   const plantGuides = [
     {
-      image: "/Snake.jpg",
+      image: snakeImg,
       commonName: "Snake Plant",
       scientificName: "Sansevieria trifasciata",
       light: "Low to bright indirect light",
@@ -15,7 +19,7 @@ export default function Home() {
       level: "Beginner"
     },
     {
-      image: "/Spider.jpg",
+      image: spiderImg,
       commonName: "Spider Plant",
       scientificName: "Chlorophytum comosum",
       light: "Bright indirect sunlight",
@@ -24,7 +28,7 @@ export default function Home() {
       level: "Intermediate"
     },
     {
-      image: "/Ficus.jpg",
+      image: ficusImg,
       commonName: "Fiddle Leaf Fig",
       scientificName: "Ficus lyrata",
       light: "Bright indirect light (6+ hrs)",
