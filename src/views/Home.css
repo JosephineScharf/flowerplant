@@ -1,0 +1,61 @@
+.hero {
+  height: 50vh;
+  background-image: url("/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  color: white;
+  text-align: left;
+}
+
+.hero-text {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.plant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.plant-info {
+  padding: 10px;
+}
+
+.badge {
+  display: inline-block;
+  background: #2e7d32;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.home-intro {
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  font-weight: 100;
+}
+
+.plant-basics {
+  text-align: left;
+  font-weight: bold;
+  margin: 20px 20px;
+  padding-left: 20px;
+}
+.cards-section {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.home-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}

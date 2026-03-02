@@ -10,7 +10,7 @@ export default function PlantList({ plants, setPlants }) {
   }
 
   return (
-    <div>
+    <div className="plant-grid">
       {plants.map(plant => (
         <PlantItem
           key={plant.id}

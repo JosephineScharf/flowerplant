@@ -1,19 +1,34 @@
 import { Link } from "react-router-dom";
+import "./PlantItem.css";
 
 export default function PlantItem({ plant, deleteHandler }) {
   return (
-    <div>
-      <h3>{plant.commonName}</h3>
-      <p>Scientific: {plant.scientificName}</p>
-      <p>Light: {plant.light}</p>
-      <p>Watering: {plant.watering}</p>
-      <p>Soil: {plant.soil}</p>
-      <p>Level: {plant.level}</p>
+    <div className="plant-card">
 
-      <Link to={`/update/${plant.id}`}>Update</Link>
-      <button onClick={() => deleteHandler(plant.id)}>
-        Delete
-      </button>
+      <div className="card-content">
+        <h3>{plant.commonName}</h3>
+
+        <p><em>{plant.scientificName}</em></p>
+        <p>Light: {plant.light}</p>
+        <p>Watering: {plant.watering}</p>
+        <p>Soil: {plant.soil}</p>
+
+        <span className="badge">{plant.level}</span>
+      </div>
+
+      <div className="card-buttons">
+        <Link to={`/update/${plant.id}`}>
+          <button className="update-btn">Update</button>
+        </Link>
+
+        <button
+          className="delete-btn"
+          onClick={() => deleteHandler(plant.id)}
+        >
+          Delete
+        </button>
+      </div>
+
     </div>
   );
 }

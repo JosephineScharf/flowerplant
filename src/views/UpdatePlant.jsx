@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import "./Form.css";
 
 export default function UpdatePlant() {
 
@@ -25,7 +26,6 @@ export default function UpdatePlant() {
     localStorage.setItem("plants", JSON.stringify(plants));
   }, [plants]);
 
-  // Load existing plant data into form
   useEffect(() => {
     if (plant) {
       setCommonName(plant.commonName);
@@ -50,56 +50,52 @@ export default function UpdatePlant() {
       level
     };
 
-    setPlants(
-      plants.map(p =>
-        p.id === Number(id) ? updatedPlant : p
-      )
-    );
+    setPlants(plants.map(p =>
+      p.id === Number(id) ? updatedPlant : p
+    ));
 
     navigate("/myplants");
   }
 
   return (
-    <form onSubmit={updateHandler}>
-      <h2>Update Plant</h2>
+    <div className="form-card">
+      <h2>Update Plant ✏️</h2>
 
-      <input
-        value={commonName}
-        onChange={e => setCommonName(e.target.value)}
-        required
-      />
+      <form onSubmit={updateHandler} className="plant-form">
 
-      <input
-        value={scientificName}
-        onChange={e => setScientificName(e.target.value)}
-        required
-      />
+        <div className="form-row">
+          <label>Common Name 🌼</label>
+          <input value={commonName} onChange={e => setCommonName(e.target.value)} required/>
+        </div>
 
-      <input
-        value={light}
-        onChange={e => setLight(e.target.value)}
-        required
-      />
+        <div className="form-row">
+          <label>Scientific Name 🔬</label>
+          <input value={scientificName} onChange={e => setScientificName(e.target.value)} required/>
+        </div>
 
-      <input
-        value={watering}
-        onChange={e => setWatering(e.target.value)}
-        required
-      />
+        <div className="form-row">
+          <label>Light ☀️</label>
+          <input value={light} onChange={e => setLight(e.target.value)} required/>
+        </div>
 
-      <input
-        value={soil}
-        onChange={e => setSoil(e.target.value)}
-        required
-      />
+        <div className="form-row">
+          <label>Watering 💧</label>
+          <input value={watering} onChange={e => setWatering(e.target.value)} required/>
+        </div>
 
-      <input
-        value={level}
-        onChange={e => setLevel(e.target.value)}
-        required
-      />
+        <div className="form-row">
+          <label>Soil 🌱</label>
+          <input value={soil} onChange={e => setSoil(e.target.value)} required/>
+        </div>
 
-      <button>Update Plant</button>
-    </form>
+        <div className="form-row">
+          <label>Difficulty 📊</label>
+          <input value={level} onChange={e => setLevel(e.target.value)} required/>
+        </div>
+
+        <button className="primary-btn">Update Plant</button>
+
+      </form>
+    </div>
   );
 }

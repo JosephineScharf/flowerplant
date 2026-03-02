@@ -1,0 +1,18 @@
+footer {
+  background-color: #1b5e20;
+  color: white;
+  padding: 20px 40px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* optional nicer spacing between lines */
+footer p {
+  margin: 5px 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

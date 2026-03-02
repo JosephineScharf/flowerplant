@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Form.css"
 
 export default function CreatePlant() {
 
@@ -44,15 +45,44 @@ export default function CreatePlant() {
   }
 
   return (
-    <form onSubmit={createHandler}>
-      <input placeholder="Common Name" onChange={e => setCommonName(e.target.value)} required/>
-      <input placeholder="Scientific Name" onChange={e => setScientificName(e.target.value)} required/>
-      <input placeholder="Light" onChange={e => setLight(e.target.value)} required/>
-      <input placeholder="Watering" onChange={e => setWatering(e.target.value)} required/>
-      <input placeholder="Soil" onChange={e => setSoil(e.target.value)} required/>
-      <input placeholder="Level" onChange={e => setLevel(e.target.value)} required/>
+      <div className="form-card">
 
-      <button>Create Plant</button>
-    </form>
+    <h2>Create New Plant 🪴 </h2>
+<form onSubmit={createHandler} className="plant-form">
+
+  <div className="form-row">
+    <label> Common Name 🌼:</label>
+    <input onChange={e => setCommonName(e.target.value)} required />
+  </div>
+
+  <div className="form-row">
+    <label>Scientific Name 🔬:</label>
+    <input onChange={e => setScientificName(e.target.value)} required />
+  </div>
+
+  <div className="form-row">
+    <label> Light ☀️:</label>
+    <input onChange={e => setLight(e.target.value)} required />
+  </div>
+
+  <div className="form-row">
+    <label> Watering 💧:</label>
+    <input onChange={e => setWatering(e.target.value)} required />
+  </div>
+
+  <div className="form-row">
+    <label> Soil 🌱:</label>
+    <input onChange={e => setSoil(e.target.value)} required />
+  </div>
+
+  <div className="form-row">
+    <label> Difficulty 📊:</label>
+    <input onChange={e => setLevel(e.target.value)} required />
+  </div>
+
+  <button className="primary-btn">Create Plant</button>
+
+</form>
+    </div>
   );
 }

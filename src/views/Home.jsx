@@ -1,8 +1,12 @@
+import "./Home.css";
+
 export default function Home() {
+
 
   //  Plant data
   const plantGuides = [
     {
+      image: "/Snake.jpg",
       commonName: "Snake Plant",
       scientificName: "Sansevieria trifasciata",
       light: "Low to bright indirect light",
@@ -11,6 +15,7 @@ export default function Home() {
       level: "Beginner"
     },
     {
+      image: "/Spider.jpg",
       commonName: "Spider Plant",
       scientificName: "Chlorophytum comosum",
       light: "Bright indirect sunlight",
@@ -19,6 +24,7 @@ export default function Home() {
       level: "Intermediate"
     },
     {
+      image: "/Ficus.jpg",
       commonName: "Fiddle Leaf Fig",
       scientificName: "Ficus lyrata",
       light: "Bright indirect light (6+ hrs)",
@@ -31,24 +37,35 @@ export default function Home() {
 // Display
   return (
     <div>
-      <h2>Welcome to FlowerPlant 🌱</h2>
-      <p>
-        Explore plant care guides and learn how to keep
-        your plants healthy and thriving.
-      </p>
-
-      <h3>Plant Care Basics</h3>
-
-      {plantGuides.map((plant, index) => (
-        <div key={index}>
-          <h4>{plant.commonName}</h4>
-          <p>Scientific: {plant.scientificName}</p>
-          <p>Light: {plant.light}</p>
-          <p>Watering: {plant.watering}</p>
-          <p>Soil: {plant.soil}</p>
-          <p>Difficulty: {plant.level}</p>
+      <div className="hero">
+        <div className="hero-text">
+          <h1>Welcome to FlowerPlant 🌱</h1>
+          <p>Learn how to care for your plants</p>
         </div>
-      ))}
+      </div>
+      <section className="home-intro">
+        <h3 >
+          Explore plant care guides and learn how to keep your plants healthy and thriving.
+        </h3>
+      </section>
+      <h3 className="plant-basics">Plant Care Basics</h3>
+      <div className="cards-section">
+        <div className="plant-grid">
+          {plantGuides.map((plant, index) => (
+            <div className="plant-card" key={index}>
+              <img src={plant.image} alt={plant.commonName} />
+              <div className="plant-info">
+                <h4>{plant.commonName}</h4>
+                <p><em>{plant.scientificName}</em></p>
+                <p>Light: {plant.light}</p>
+                <p>Watering: {plant.watering}</p>
+                <p>Soil: {plant.soil}</p>
+                <span className="badge">{plant.level}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
