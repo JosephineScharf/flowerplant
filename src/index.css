@@ -33,20 +33,24 @@ body {
 
 main {
   flex: 1;
+}
+.content {
   padding: 40px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .primary-btn {
   display: inline-block;
   padding: 10px 15px;
-  background: #2e7d32;
+  background: #424F19;
   color: white;
   border-radius: 8px;
   text-decoration: none;
   font-size: 14px;
 }
 .primary-btn:hover {
-  background: #1b5e20;
+  background: #22290c;
 }
 
 .update-btn {
